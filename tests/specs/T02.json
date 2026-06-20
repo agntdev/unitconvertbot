@@ -1,0 +1,37 @@
+[
+  {
+    "name": "/start sends welcome with main menu",
+    "steps": [
+      {
+        "send": { "text": "/start" },
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "Welcome! I am ready to help.",
+              "reply_markup": {
+                "inline_keyboard": [
+                  [
+                    { "text": "Ping", "callback_data": "menu:ping" }
+                  ]
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "main menu Ping button replies pong",
+    "steps": [
+      {
+        "send": { "callback": "menu:ping" },
+        "expect": [
+          { "method": "answerCallbackQuery" },
+          { "method": "sendMessage", "payload": { "text": "pong" } }
+        ]
+      }
+    ]
+  }
+]
