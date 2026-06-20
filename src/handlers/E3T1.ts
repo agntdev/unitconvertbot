@@ -13,4 +13,8 @@ composer.use(async (ctx, next) => {
   }
 });
 
+composer.command("throw", () => {
+  throw new Error("deliberate error for testing error middleware");
+});
+
 export default composer;
