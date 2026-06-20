@@ -13,4 +13,19 @@ composer.use(async (ctx, next) => {
   }
 });
 
+composer.command("m2k", async (ctx) => {
+  const input = ctx.match.trim();
+  if (!input) {
+    await ctx.reply("Usage: /m2k <miles>");
+    return;
+  }
+  const miles = parseFloat(input);
+  if (isNaN(miles)) {
+    await ctx.reply("Please provide a valid number of miles.");
+    return;
+  }
+  const km = miles * 1.60934;
+  await ctx.reply(km.toFixed(2));
+});
+
 export default composer;
