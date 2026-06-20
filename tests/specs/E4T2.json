@@ -1,0 +1,18 @@
+[
+  {
+    "name": "/help replies with command list and usage notes",
+    "steps": [
+      {
+        "send": { "text": "/help" },
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "Available commands:\n\n/start — Welcome message\n/ping — Ping the bot\n/help — Show this help\n/c2f <celsius> — Convert Celsius to Fahrenheit\n/f2c <fahrenheit> — Convert Fahrenheit to Celsius\n/km2mi <kilometers> — Convert kilometers to miles\n\nUsage examples:\n/c2f 100\n/f2c 32\n/km2mi 10\n\nNotes on decimal input and rounding:\n• All numeric commands accept decimal values (e.g., 36.6, -5.2).\n• Results are rounded to 2 decimal places."
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
