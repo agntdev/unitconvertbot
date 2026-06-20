@@ -9,5 +9,16 @@
         ]
       }
     ]
+  },
+  {
+    "name": "/throw triggers the error middleware and returns error message",
+    "steps": [
+      {
+        "send": { "text": "/throw" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "An error occurred; please try again" } }
+        ]
+      }
+    ]
   }
 ]
