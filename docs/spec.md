@@ -24,7 +24,7 @@ Developer(s) implementing and maintaining the bot; end users on Telegram who nee
 
 ## Integrations & notification targets
 - Telegram Bot API (via grammY)
-- Environment variable: TELEGRAM_TOKEN (required)
+- Environment variable: BOT_TOKEN (required)
 - Default runtime: long polling (getUpdates)
 - Optional: Dockerfile and simple process manager for hosting (documented but not required)
 
@@ -98,7 +98,7 @@ Register handlers in bot.ts with bot.command('c2f', handlers.c2f) etc.
 - Accepts only the first token after the command as the numeric input — keeps parsing simple and predictable.
 - Accepts comma or dot as decimal separator (comma is converted to dot before parsing) — improves usability across locales.
 - Rounds results to 2 decimals using toFixed(2) and returns as formatted string — matches requirement and avoids floating noise.
-- Environment variable TELEGRAM_TOKEN is required to run the bot — standard for Telegram bots.
+- Environment variable BOT_TOKEN is required to run the bot — standard for Telegram bots.
 - Default error reply is a generic short notice and console logging for developers — keeps user experience clean while aiding debugging.
 
 
