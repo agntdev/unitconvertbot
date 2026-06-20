@@ -1,0 +1,57 @@
+[
+  {
+    "name": "/num parses number with dot",
+    "steps": [
+      {
+        "send": { "text": "/num 3.14159" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "3.14" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "/num parses number with comma",
+    "steps": [
+      {
+        "send": { "text": "/num 3,14159" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "3.14" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "/num with integer",
+    "steps": [
+      {
+        "send": { "text": "/num 42" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "42.00" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "/num with no argument shows usage",
+    "steps": [
+      {
+        "send": { "text": "/num" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "Usage: /num <number>" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "/num with invalid input shows error",
+    "steps": [
+      {
+        "send": { "text": "/num abc" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "Please provide a valid number." } }
+        ]
+      }
+    ]
+  }
+]
