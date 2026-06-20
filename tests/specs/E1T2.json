@@ -1,0 +1,57 @@
+[
+  {
+    "name": "/f2c without argument shows usage",
+    "steps": [
+      {
+        "send": { "text": "/f2c" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "Usage: /f2c <temperature in Fahrenheit>" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "/f2c with invalid input shows usage",
+    "steps": [
+      {
+        "send": { "text": "/f2c abc" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "Usage: /f2c <temperature in Fahrenheit>" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "/f2c converts 32°F to 0°C",
+    "steps": [
+      {
+        "send": { "text": "/f2c 32" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "<i>32°F</i> = <b>0.00°C</b>", "parse_mode": "HTML" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "/f2c converts 212°F to 100°C",
+    "steps": [
+      {
+        "send": { "text": "/f2c 212" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "<i>212°F</i> = <b>100.00°C</b>", "parse_mode": "HTML" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "/f2c rounds to 2 decimals",
+    "steps": [
+      {
+        "send": { "text": "/f2c 98.6" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "<i>98.6°F</i> = <b>37.00°C</b>", "parse_mode": "HTML" } }
+        ]
+      }
+    ]
+  }
+]
