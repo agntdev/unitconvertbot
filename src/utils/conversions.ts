@@ -11,7 +11,7 @@ export function kilometersToMiles(km: number): number {
 }
 
 export function milesToKilometers(miles: number): number {
-  return miles / 0.621371;
+  return miles * 1.609344;
 }
 
 export function roundTo2(value: number): string {
