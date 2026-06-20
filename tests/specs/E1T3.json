@@ -1,0 +1,35 @@
+[
+  {
+    "name": "/km2mi converts 10 km to miles",
+    "steps": [
+      {
+        "send": { "text": "/km2mi 10" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "10.00 km = 6.21 mi" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "/km2mi with no argument shows usage",
+    "steps": [
+      {
+        "send": { "text": "/km2mi" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "Usage: /km2mi <kilometers>" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "/km2mi with invalid input shows error",
+    "steps": [
+      {
+        "send": { "text": "/km2mi abc" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "Please provide a valid number of kilometers." } }
+        ]
+      }
+    ]
+  }
+]
