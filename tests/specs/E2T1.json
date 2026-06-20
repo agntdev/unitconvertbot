@@ -1,0 +1,57 @@
+[
+  {
+    "name": "/parsenumber parses a valid integer",
+    "steps": [
+      {
+        "send": { "text": "/parsenumber 42" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "42.00" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "/parsenumber parses a number with commas",
+    "steps": [
+      {
+        "send": { "text": "/parsenumber 1,234.56" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "1234.56" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "/parsenumber parses a decimal to 2 places",
+    "steps": [
+      {
+        "send": { "text": "/parsenumber 3.14159" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "3.14" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "/parsenumber without argument shows usage",
+    "steps": [
+      {
+        "send": { "text": "/parsenumber" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "Usage: /parsenumber <number>" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "/parsenumber with invalid input shows error",
+    "steps": [
+      {
+        "send": { "text": "/parsenumber abc" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "Please provide a valid number." } }
+        ]
+      }
+    ]
+  }
+]
