@@ -1,0 +1,13 @@
+[
+  {
+    "name": "/m2k normal operation passes through error middleware",
+    "steps": [
+      {
+        "send": { "text": "/m2k 5" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "8.05" } }
+        ]
+      }
+    ]
+  }
+]
