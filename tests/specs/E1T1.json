@@ -1,0 +1,46 @@
+[
+  {
+    "name": "/c2f converts 0C to 32F",
+    "steps": [
+      {
+        "send": { "text": "/c2f 0" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "32.00" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "/c2f converts 100C to 212F",
+    "steps": [
+      {
+        "send": { "text": "/c2f 100" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "212.00" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "/c2f with no argument shows usage",
+    "steps": [
+      {
+        "send": { "text": "/c2f" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "Usage: /c2f <temperature in Celsius>" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "/c2f with invalid input shows error",
+    "steps": [
+      {
+        "send": { "text": "/c2f abc" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "Please provide a valid number." } }
+        ]
+      }
+    ]
+  }
+]
