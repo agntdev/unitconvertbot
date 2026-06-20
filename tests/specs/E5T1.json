@@ -1,0 +1,79 @@
+[
+  {
+    "name": "/m2k converts 10 miles to km",
+    "steps": [
+      {
+        "send": { "text": "/m2k 10" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "16.09" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "/m2k with no argument shows usage",
+    "steps": [
+      {
+        "send": { "text": "/m2k" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "Usage: /m2k <distance in miles>" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "/m2k with invalid input shows error",
+    "steps": [
+      {
+        "send": { "text": "/m2k abc" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "Please provide a valid number." } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "/round rounds to 2 decimal places",
+    "steps": [
+      {
+        "send": { "text": "/round 3.14159" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "3.14" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "/round with integer pads decimals",
+    "steps": [
+      {
+        "send": { "text": "/round 10" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "10.00" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "/round with no argument shows usage",
+    "steps": [
+      {
+        "send": { "text": "/round" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "Usage: /round <number>" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "/round with invalid input shows error",
+    "steps": [
+      {
+        "send": { "text": "/round abc" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "Please provide a valid number." } }
+        ]
+      }
+    ]
+  }
+]
