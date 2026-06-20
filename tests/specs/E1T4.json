@@ -1,0 +1,35 @@
+[
+  {
+    "name": "/mi2km 10 converts 10 miles to kilometers",
+    "steps": [
+      {
+        "send": { "text": "/mi2km 10" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "10 mi = 16.09 km" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "/mi2km with no argument shows usage",
+    "steps": [
+      {
+        "send": { "text": "/mi2km" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "Usage: /mi2km <miles>" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "/mi2km with invalid input shows error",
+    "steps": [
+      {
+        "send": { "text": "/mi2km abc" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "Please provide a valid number of miles." } }
+        ]
+      }
+    ]
+  }
+]
